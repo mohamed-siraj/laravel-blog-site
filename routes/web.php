@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\PublicController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -19,11 +20,9 @@ use Illuminate\Support\Facades\Route;
 /**
  * public route
  */
-Route::middleware([])->group(function () {
+Route::middleware('guest')->group(function () {
 
-    Route::get('/', function () {
-        return view('public.welcome');
-    })->name('root');
+    Route::get('/', [PublicController::class, 'index'])->name('root');
 
 });
 
