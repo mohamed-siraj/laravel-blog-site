@@ -8,13 +8,13 @@
                 <div class="card-header">{{ __('Blog Create') }}</div>
 
                 <div class="card-body">
-                    @if (session('status'))
+                    @if (session('success'))
                         <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
+                            {{ session('success') }}
                         </div>
                     @endif
 
-                    <form method="POST" action="{{ route('blog.create') }}">
+                    <form method="POST" action="{{ route('blog.create') }}" enctype="multipart/form-data">
                             @csrf
 
                             <div class="row mb-3">

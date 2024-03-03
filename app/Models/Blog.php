@@ -8,4 +8,21 @@ use Illuminate\Database\Eloquent\Model;
 class Blog extends Model
 {
     use HasFactory;
+
+    /**
+     * The attribute that model table name
+     * @var string
+     */
+    protected $table ="blogs";
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'title',
+        'description',
+        'image_url',
+    ];
 }

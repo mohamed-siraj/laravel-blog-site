@@ -33,7 +33,7 @@ class BlogController extends Controller
         $validator = Validator::make($request->all(), [
             'title' => 'required',
             'description' => 'required',
-            'image' => 'required|mimes:jpeg,jpg,png,gif',
+            'image' => 'required|file|image|mimes:jpeg,jpg,png,gif',
         ]);
 
         if ($validator->fails()) {
@@ -42,9 +42,17 @@ class BlogController extends Controller
                 ->withInput();
         }
 
-        return $request->file('image')->store(
+        $path = $request->file('image')->store(
             'blogs', 'public'
         );
+
+        $blog = new Blog();
+        $blog->title = $request->title;
+        $blog->description = $request->description;
+        $blog->image_url = $path;
+        $blog->save();
+
+        return redirect('home')->with('success', 'Successfully created');
     }
 
     /**
