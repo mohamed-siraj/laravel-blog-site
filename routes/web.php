@@ -16,9 +16,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+/**
+ * public route
+ */
+Route::middleware([])->group(function () {
+
+    Route::get('/', function () {
+        return view('public.welcome');
+    })->name('root');
+
 });
+
 
 Auth::routes();
 
