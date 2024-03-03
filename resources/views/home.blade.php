@@ -21,7 +21,7 @@
                                 <label for="title" class="col-md-4 col-form-label text-md-end">{{ __('Title') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="title" type="text" class="form-control @error('title') is-invalid @enderror" name="title" required autocomplete="title" autofocus>
+                                    <input id="title" type="text" class="form-control @error('title') is-invalid @enderror" name="title" autocomplete="title" autofocus>
 
                                     @error('title')
                                     <span class="invalid-feedback" role="alert">
@@ -35,7 +35,7 @@
                                 <label for="description" class="col-md-4 col-form-label text-md-end">{{ __('Description') }}</label>
 
                                 <div class="col-md-6">
-                                    <textarea rows="10" id="description" class="form-control @error('description') is-invalid @enderror" name="description" required autocomplete="description">
+                                    <textarea rows="10" id="description" class="form-control @error('description') is-invalid @enderror" name="description" autocomplete="description">
 
                                     </textarea>
 
@@ -51,7 +51,7 @@
                                 <label for="image" class="col-md-4 col-form-label text-md-end">{{ __('Image') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="image" type="file" class="form-control @error('image') is-invalid @enderror" name="image" required>
+                                    <input id="image" type="file" class="form-control @error('image') is-invalid @enderror" name="image">
 
                                     @error('image')
                                     <span class="invalid-feedback" role="alert">

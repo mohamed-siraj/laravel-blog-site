@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class BlogController extends Controller
 {
@@ -28,7 +29,19 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'title' => 'required',
+            'description' => 'required',
+            'image' => 'required|mimes:jpeg,jpg,png,gif',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('home')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        return  0;
     }
 
     /**
