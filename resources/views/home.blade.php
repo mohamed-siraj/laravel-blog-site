@@ -35,7 +35,7 @@
                                 <label for="description" class="col-md-4 col-form-label text-md-end">{{ __('Description') }}</label>
 
                                 <div class="col-md-6">
-                                    <textarea rows="10" id="description" class="form-control @error('description') is-invalid @enderror" name="description" autocomplete="description">
+                                    <textarea rows="10" id="description" class="form-control @error('description') is-invalid @enderror" name="description">
 
                                     </textarea>
 

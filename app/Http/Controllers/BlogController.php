@@ -29,6 +29,7 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
+
         $validator = Validator::make($request->all(), [
             'title' => 'required',
             'description' => 'required',
@@ -41,7 +42,9 @@ class BlogController extends Controller
                 ->withInput();
         }
 
-        return  0;
+        return $request->file('image')->store(
+            'blogs', 'public'
+        );
     }
 
     /**
